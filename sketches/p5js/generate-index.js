@@ -30,6 +30,16 @@ const items = fs
 
 console.log("Found", items.length, "'copy' sketches");
 
+// Also write a static JSON file (`sketches.json`) so the landing page can be updated without Node
+const jsonList = items.map(name => ({ name, url: `sketches/${slug(name)}/` }));
+const jsonPath = path.join(root, 'sketches.json');
+try{
+  fs.writeFileSync(jsonPath, JSON.stringify(jsonList, null, 2), 'utf8');
+  console.log('Wrote', jsonPath);
+}catch(err){
+  console.warn('Could not write sketches.json', err);
+}
+
 const cards = items
   .map((name) => {
     const url = `sketches/${slug(name)}/`;

@@ -1,0 +1,51 @@
+name: Update sketches index
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  regenerate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Run generator
+        run: node sketches/p5js/generate-index.js
+
+      - name: Prepare docs folder
+        run: |
+          rm -rf docs || true
+          mkdir -p docs
+          cp sketches/p5js/index.html docs/index.html
+          cp sketches/p5js/styles.css docs/styles.css || true
+          cp sketches/p5js/sketches.json docs/sketches.json || true
+          cp -r sketches/p5js/sketches docs/sketches || true
+          touch docs/.nojekyll
+
+      - name: Commit generated files and docs
+        uses: EndBug/add-and-commit@v9
+        with:
+          message: 'chore(ci): regenerate sketches index and update docs'
+          add: 'sketches/p5js/index.html,sketches/p5js/sketches.json,docs/**'
+          author_name: 'github-actions'
+          author_email: 'github-actions@users.noreply.github.com'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Update GitHub Pages (optional)
+        uses: peter-evans/repository-dispatch@v2
+        if: false
+        with:
+          event-type: update-pages
+          client-payload: '{"reason":"regenerated docs"}'
+

@@ -22,3 +22,7 @@ Notes
 - Folder names containing spaces or non-ASCII characters are URL-encoded automatically by the generator.
 - Click the **Open** button on a card to view the sketch fullscreen in a lightweight overlay (Esc or the ✕ button closes it).
 - If you prefer thumbnails instead of live previews, add `screenshot.png` inside each sketch folder and update the generator.
+
+CI: automatic regeneration via GitHub Actions
+
+- A GitHub Action is included (`.github/workflows/update-sketches.yml`) that runs on push to `main` and via manual dispatch. It runs `node sketches/p5js/generate-index.js` and commits updated `index.html` and `sketches.json` automatically. The workflow also copies the generated site to `docs/` so you can serve it using GitHub Pages (set Pages to: Branch `main`, Folder `/docs`). This lets you keep the landing page up-to-date without running Node locally.
