@@ -1,0 +1,177 @@
+:root {
+  --bg: #0f0f11;
+  --card: #131417;
+  --accent: #ffd166;
+  --muted: #9aa0a6;
+  --gap: 18px;
+}
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family:
+    Inter,
+    system-ui,
+    Segoe UI,
+    Roboto,
+    "Helvetica Neue",
+    Arial;
+}
+body {
+  background: linear-gradient(180deg, #07070a 0%, #0f0f11 100%);
+  color: #fff;
+  padding: 36px;
+}
+header {
+  max-width: 1100px;
+  margin: 0 auto 26px;
+  text-align: center;
+}
+header h1 {
+  margin: 0 0 8px;
+  font-size: 28px;
+}
+header .desc {
+  margin: 0 0 12px;
+  color: var(--muted);
+}
+#search {
+  width: 100%;
+  max-width: 560px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.02);
+  color: #fff;
+}
+#grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: var(--gap);
+  max-width: 1100px;
+  margin: 24px auto;
+}
+.card {
+  background: var(--card);
+  padding: 12px;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  min-height: 130px;
+}
+.thumb {
+  display: block;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
+  height: 120px;
+  border-radius: 6px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  cursor: pointer;
+}
+.thumb .preview {
+  border: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  transform-origin: center;
+  transform: scale(1.02);
+}
+.meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 8px;
+}
+.title {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+.title:hover {
+  text-decoration: underline;
+}
+.meta .muted {
+  color: var(--muted);
+  font-size: 13px;
+}
+@media (max-width: 520px) {
+  body {
+    padding: 18px;
+  }
+  header h1 {
+    font-size: 20px;
+  }
+}
+
+/* Fullscreen overlay */
+.overlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 24px;
+}
+.overlay.active {
+  display: flex;
+}
+.overlay-frame {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 6px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+}
+@media (min-width: 720px) {
+  .overlay-frame {
+    width: 100%;
+    height: 90%;
+    max-width: 1280px;
+  }
+}
+.close {
+  position: fixed;
+  right: 22px;
+  top: 18px;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  color: #fff;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 18px;
+  cursor: pointer;
+  z-index: 10000;
+}
+
+/* Make preview iframe interactive only in overlay; small previews remain non-interactive */
+.thumb .preview {
+  pointer-events: none;
+}
+.overlay-frame {
+  pointer-events: auto;
+}
+
+/* Small adjustments for cards */
+.meta .open {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  color: var(--accent);
+  padding: 6px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.meta .open:hover {
+  background: rgba(255, 255, 255, 0.02);
+}
