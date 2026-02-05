@@ -9,6 +9,8 @@ How to use
 
 This will scan the `sketches/` subfolder for directories containing an `index.html` and generate `index.html` in this folder.
 
+If you prefer a completely static, Node-free workflow (e.g., for GitHub Pages), you can update the `sketches.json` file in this folder by hand. The page will try to load `sketches.json` client-side and use it to build the landing cards (no server or Node needed). The Node generator (`generate-index.js`) is still available if you want to automatically recreate `sketches.json` or `index.html` locally.
+
 Deploying to GitHub Pages
 
 - Option A: Put this folder on the `gh-pages` branch or use the repository `Pages` settings and point to `main` / `docs` or the root depending on your setup.
