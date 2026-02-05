@@ -1,0 +1,67 @@
+body {
+  font-family:
+    Inter,
+    system-ui,
+    Segoe UI,
+    Roboto,
+    Arial;
+  margin: 0;
+  padding: 28px;
+  background: linear-gradient(180deg, #07070a, #0f0f11);
+  color: #fff;
+}
+.wrap {
+  max-width: 840px;
+  margin: 0 auto;
+}
+h2 {
+  margin: 0 0 10px;
+  font-size: 20px;
+}
+.chat {
+  background: #111;
+  padding: 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+.output {
+  max-height: 60vh;
+  overflow: auto;
+  padding: 8px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+.p-user {
+  color: #cfe8ff;
+  margin: 6px 0;
+}
+.p-bot {
+  color: #ffd166;
+  margin: 6px 0;
+}
+.controls {
+  display: flex;
+  gap: 8px;
+}
+#input {
+  flex: 1;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: transparent;
+  color: #fff;
+}
+#send {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: #1b1b1d;
+  color: #fff;
+  cursor: pointer;
+}
+.credit {
+  margin-top: 8px;
+  color: #9aa0a6;
+  font-size: 13px;
+}

@@ -1,0 +1,36 @@
++ hello
+- Hello! I'm <botname>. Ask me about chatbots, ELIZA, or how rule-based bots work.
+
++ hi
+- Hey — how can I help you today?
+
++ what was the earliest chatbot
+- The first well-known chatbot was called ELIZA.
+
++ when was (the first chatbot|it) created
+- ELIZA was designed in 1964 and introduced in 1966 at MIT.
+
++ who made (the first chatbot|it)
+- Computer scientist Joseph Weizenbaum made the bot ELIZA as an experiment in 1964.
+
++ (can machines think|are bots smart|are you as good as chatgpt|are computers and humans alike?)
+- I don't think so. But I just thought that, so ... it's a paradox.
+- I only respond to answerable questions.
+- "I am a bot. All bots are liars." -Mr. Mind (a bot)
+
++ my name is *
+- <set name=<star>> Nice to meet you, <name>!
+
++ what is my name
+* <get name> == undefined => You never told me.
+- your name is <get name>
+
++ [*] bot [*]
+- I'm a bot. Are you a bot too?
+- Only a bot would ask me that!
+
++ help
+- Try asking: "what was the earliest chatbot", "who made the first chatbot", or "can machines think".
+
++ *
+- Sorry — I don't have a rule for that yet. Try asking about ELIZA or the history of chatbots.

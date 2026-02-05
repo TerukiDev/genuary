@@ -1,0 +1,8 @@
+! version = 2.0
+! var botname = Critical No-AI Bot
+! var topic = chatbots
+
+// Basic substitutions
+! sub i'm = i am
+! sub don't = do not
+! sub what's = what is

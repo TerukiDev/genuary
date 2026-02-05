@@ -1,0 +1,3 @@
+# Ignore generated index if you prefer
+/sketches/*.png
+index.html
